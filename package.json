@@ -1,0 +1,19 @@
+{
+  "name": "dfl-javascript-arreglosyobjetos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass --watch assets/scss:assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emonsalves/DFL-JAVASCRIPT-ARREGLOSYOBJETOS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emonsalves/DFL-JAVASCRIPT-ARREGLOSYOBJETOS/issues"
+  },
+  "homepage": "https://github.com/emonsalves/DFL-JAVASCRIPT-ARREGLOSYOBJETOS#readme"
+}
