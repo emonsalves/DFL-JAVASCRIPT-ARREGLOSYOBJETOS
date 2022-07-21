@@ -102,18 +102,18 @@ function validar(cuartos, desde, hasta) {
 
 function seleccionArreglo(cuartos, desde, hasta) {
   let cajaCantidad = document.querySelector("#cantidadPropiedades");
-// Variable en la cual con el selector se le asigna un elemento de nuestra web en este caso span id cantidadPropiedades
+  // Variable en la cual con el selector se le asigna un elemento de nuestra web en este caso span id cantidadPropiedades
 
   let cajaPropiedad = document.querySelector(".propiedades")
   // Variable en la cual con el selector se le asigna un elemento de nuestra web en este caso la clase .propiedades que vendria a ser nuestro contenedor de cards
 
   for (const conteoPropiedad of propiedadesJSON) {
     //For para recorrer el arreglo
-    if (Number(conteoPropiedad.rooms) >= Number(cuartos) && Number(conteoPropiedad.m) >= Number(desde) && Number(conteoPropiedad.m) <= Number(hasta)) {
+    if (((Number(conteoPropiedad.rooms) >= Number(cuartos) && Number(conteoPropiedad.m) >= Number(desde))) && Number(conteoPropiedad.m) <= Number(hasta)) {
       //If para generar el filtro requerido
       cantidad++; // Agregamos +1 
       html += // TEMPLATE QUE SERA CARGADO EN NUESTRA WEB
-        `<div class="propiedad">
+        /*html*/ `<div class="propiedad">
             <div class="img" style="background-image: url(${conteoPropiedad.src})"></div>
             <section>
                 <h5>${conteoPropiedad.name}</h5>
@@ -139,7 +139,7 @@ function cargaInicial() {
   for (const conteoPropiedad of propiedadesJSON) {
     cantidad++;
     html +=
-    `<div class="propiedad">
+      `<div class="propiedad">
       <div class="img" style="background-image: url(${conteoPropiedad.src})"></div>
       <section>
         <h5>${conteoPropiedad.name}</h5>
@@ -157,7 +157,7 @@ function cargaInicial() {
 }
 
 //SE CREA FUNCION LIMPIAR SIMILAR A FUNCION CARGA INICIAL CON LA DIFERENCIA QUE BORRA LOS ELEMENTOS DENTRO DE NUESTRO CONTENEDOR DE CARDS
-function limpiar (){
+function limpiar() {
   html = "";
   cantidad = 0;
 
@@ -167,3 +167,5 @@ function limpiar (){
   cajaPropiedad.innerHTML = html;
   cajaCantidad.innerHTML = cantidad;
 }
+
+//REVISAR FUNCION DE VALIDACION SE CAE CON 1 CUARTO
