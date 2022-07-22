@@ -112,19 +112,7 @@ function seleccionArreglo(cuartos, desde, hasta) {
     if (((Number(conteoPropiedad.rooms) >= Number(cuartos) && Number(conteoPropiedad.m) >= Number(desde))) && Number(conteoPropiedad.m) <= Number(hasta)) {
       //If para generar el filtro requerido
       cantidad++; // Agregamos +1 
-      html += // TEMPLATE QUE SERA CARGADO EN NUESTRA WEB
-        /*html*/ `<div class="propiedad">
-            <div class="img" style="background-image: url(${conteoPropiedad.src})"></div>
-            <section>
-                <h5>${conteoPropiedad.name}</h5>
-                <div class="d-flex justify-content-between">
-                    <p>Cuartos: ${conteoPropiedad.rooms}</p>
-                    <p>Metros: ${conteoPropiedad.m}</p>
-                </div>
-                <p class="my-3">${conteoPropiedad.description}</p>
-                <button class="btn btn-info">Ver más</button>
-            </section>
-        </div>`
+      template(conteoPropiedad.src, conteoPropiedad.name, conteoPropiedad.rooms, conteoPropiedad.m, conteoPropiedad.description);
     }
   }
 
@@ -137,20 +125,7 @@ function cargaInicial() {
   let cajaCantidad = document.querySelector("#cantidadPropiedades");
   let cajaPropiedad = document.querySelector(".propiedades")
   for (const conteoPropiedad of propiedadesJSON) {
-    cantidad++;
-    html +=
-      `<div class="propiedad">
-      <div class="img" style="background-image: url(${conteoPropiedad.src})"></div>
-      <section>
-        <h5>${conteoPropiedad.name}</h5>
-        <div class="d-flex justify-content-between">
-            <p>Cuartos: ${conteoPropiedad.rooms}</p>
-            <p>Metros: ${conteoPropiedad.m}</p>
-        </div>
-        <p class="my-3">${conteoPropiedad.description}</p>
-        <button class="btn btn-info">Ver más</button>
-      </section>
-    </div>`
+    template(conteoPropiedad.src, conteoPropiedad.name, conteoPropiedad.rooms, conteoPropiedad.m, conteoPropiedad.description);
   }
   cajaPropiedad.innerHTML = html;
   cajaCantidad.innerHTML = cantidad;
@@ -168,4 +143,19 @@ function limpiar() {
   cajaCantidad.innerHTML = cantidad;
 }
 
-//REVISAR FUNCION DE VALIDACION SE CAE CON 1 CUARTO
+// ----------------------------------------FUNCION TEMPLATE ----------------------------------------------------------------
+function template(imagen, nombre, piezas, metros, detalle) {
+  html +=
+    `<div class="propiedad">
+      <div class="img" style="background-image: url(${imagen})"></div>
+      <section>
+        <h5>${nombre}</h5>
+        <div class="d-flex justify-content-between">
+            <p>Cuartos: ${piezas}</p>
+            <p>Metros: ${metros}</p>
+        </div>
+        <p class="my-3">${detalle}</p>
+        <button class="btn btn-info">Ver más</button>
+      </section>
+    </div>`
+}
